@@ -2,7 +2,7 @@
 
 namespace TS::core::MO
 {
-Crossroads::Crossroads()
+Crossroads::Crossroads(const unsigned x, const unsigned y) : ITile(x, y)
 {
 
 }

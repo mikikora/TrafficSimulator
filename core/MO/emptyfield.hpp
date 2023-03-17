@@ -7,7 +7,7 @@ namespace TS::core::MO
 class EmptyField : public ITile
 {
 public:
-    EmptyField();
+    EmptyField(const unsigned x, const unsigned y);
     void pushVehicle(const VehicleData& v) override;
     bool canBeConnected(const Side side) const override;
     ~EmptyField() override {}

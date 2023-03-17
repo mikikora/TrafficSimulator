@@ -4,7 +4,7 @@
 
 namespace TS::core::MO
 {
-EmptyField::EmptyField()
+EmptyField::EmptyField(const unsigned x, const unsigned y) : ITile(x, y)
 {
 }
 

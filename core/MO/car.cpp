@@ -6,7 +6,7 @@ namespace TS::core::MO
 //{
 //}
 
-//Car::Car(const std::vector<ITile>& destinationList) : destinations(destinationList)
-//{
-//}
+Car::Car(const TileList& destinationst) : IVehicle(destinationst)
+{
+}
 } // namespace TS::core::MO

@@ -4,6 +4,8 @@
 
 namespace TS::core::MO
 {
+ITile::ITile(const unsigned x, const unsigned y) : x(x), y(y) {}
+
 void ITile::pushVehicle(const VehicleData& v) {vehicleDatas.push_back(v);}
 
 std::vector<VehicleData> ITile::getVehicleDatas() const {return vehicleDatas;}
@@ -22,7 +24,7 @@ VehicleData ITile::freeTile(const std::shared_ptr<IVehicle> vehicle)
     return VehicleData{};
 }
 
-void ITile::connectEndpoint(const Side side, const std::shared_ptr<ITile> tile)
+void ITile::connectEndpoint(const Side side, const Tile tile)
 {
     if (!canBeConnected(side))
     {

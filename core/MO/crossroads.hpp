@@ -10,15 +10,15 @@ namespace TS::core::MO
 class Crossroads : public ITile
 {
 public:
-    Crossroads();
+    Crossroads(const unsigned x, const unsigned y);
 
     std::string classname() const override {return "Crossroads";}
 
 private:
-    std::shared_ptr<ITile> upEndpoint;
-    std::shared_ptr<ITile> leftEndpoint;
-    std::shared_ptr<ITile> downEndpoint;
-    std::shared_ptr<ITile> rightEndpoint;
+    Tile upEndpoint;
+    Tile leftEndpoint;
+    Tile downEndpoint;
+    Tile rightEndpoint;
 };
 
 } // namespace TS::core::MO

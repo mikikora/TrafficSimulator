@@ -5,17 +5,18 @@
 #include <string>
 #include <map>
 
-#include "IVehicle.hpp"
-
 namespace TS::core::MO
 {
 class ITile;
+class IVehicle;
+using Tile = std::shared_ptr<ITile>;
+using TileList = std::vector<Tile>;
 
 struct VehicleData
 {
     std::shared_ptr<IVehicle> vehicle;
-    std::shared_ptr<ITile> startEndpoint;
-    std::shared_ptr<ITile> endPoint;
+    Tile startEndpoint;
+    Tile endPoint;
 };
 
 class ITile
@@ -29,6 +30,7 @@ public:
         RIGHT = 3
     };
 
+    ITile(const unsigned x, const unsigned y);
     virtual void pushVehicle(const VehicleData& v);
     std::vector<VehicleData> getVehicleDatas() const;
     VehicleData freeTile(const std::shared_ptr<IVehicle> vehicle);
@@ -38,8 +40,10 @@ public:
 
     virtual std::string classname() const = 0;
 
+    const unsigned x;
+    const unsigned y;
+    const std::map<Side, std::shared_ptr<ITile>> endpoints;
 protected:
     std::vector<VehicleData> vehicleDatas;
-    std::map<Side, std::shared_ptr<ITile>> endpoints;
 };
 } // namespace TS::core::MO
