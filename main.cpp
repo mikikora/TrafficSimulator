@@ -1,28 +1,41 @@
 //#include "mainwindow.hpp"
 
-//#include <QApplication>
+#include <QApplication>
 #include "maps/boardbuilder.hpp"
 
 #include <iostream>
+
+#include "core/gamemanager.hpp"
 
 using namespace TS;
 
 int main(int argc, char *argv[])
 {
-//    QApplication a(argc, argv);
+    QApplication a(argc, argv);
 //    MainWindow w;
 //    w.show();
 //    return a.exec();
+
+//    auto road = std::make_shared<core::MO::Road>(1,1, core::MO::Road::Direction::horizontal);
+//    auto roadTile = std::static_pointer_cast<core::MO::ITile>(road);
+//    auto car = std::make_shared<core::MO::Car>(std::vector{roadTile}, roadTile);
+//    auto timer = std::make_shared<QTimer>();
+//    QObject::connect(timer.get(), &QTimer::timeout, car.get(), &core::MO::IVehicle::onTimeout);
+//    timer->start(1000);
+
     const auto board = maps::BoardBuilder()();
-    for (const auto& v : board.board)
-    {
-        for (const auto& t : v)
-        {
-            std::cout << t->classname() << " ";
-        }
-        std::cout << std::endl;
-    }
-    return 0;
+//    for (const auto& v : board.board)
+//    {
+//        for (const auto& t : v)
+//        {
+//            std::cout << t->classname() << " ";
+//        }
+//        std::cout << std::endl;
+//    }
+    std::cout << "START" << std::endl;
+    core::GameManager manager(board);
+
+    return a.exec();
 }
 
 /*#include <iostream>

@@ -11,10 +11,14 @@ namespace TS::core
 
 struct Board
 {
-    using LineT = std::vector<std::shared_ptr<MO::ITile>>;
+    using LineT = MO::TileList;
     using BoardT = std::vector<LineT>;
 //    Board();
     Board(const BoardT& board);
     BoardT board;
+    const unsigned hight;
+    const unsigned width;
+
+    void print() const;
 };
 } // namespace TS::core

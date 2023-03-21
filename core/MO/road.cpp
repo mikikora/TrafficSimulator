@@ -10,8 +10,11 @@ namespace
 
 } // namespace
 
-Road::Road(const Direction direction)
-    : direction(direction)
+Road::Road(const unsigned x,
+           const unsigned y,
+           const Direction direction)
+    : ITile(x, y)
+    , direction(direction)
 {
 }
 
@@ -49,9 +52,9 @@ void Road::pushVehicle(const VehicleData& v)
     }
 }
 
-bool Road::endpointContains(const std::shared_ptr<ITile> endpoint) const
+bool Road::endpointContains(const Tile endpoint) const
 {
-    return std::any_of(endpoints.begin(), endpoints.end(), [&](const auto& e){return e.second == endpoint;});
+    return std::any_of(endpoints.begin(), endpoints.end(), [&](const auto& e){ return e.second == endpoint;});
 }
 
 } // namespace TS::core::MO

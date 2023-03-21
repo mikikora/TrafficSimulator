@@ -14,12 +14,21 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
+        core/gamemanager.hpp
+        core/gamemanager.cpp
         core/MO/ITile.hpp
         core/MO/ITile.cpp
         core/Board.hpp
         core/Board.cpp
         core/MO/road.hpp
         core/MO/road.cpp
+        core/MO/spawningtile.hpp
+        core/MO/spawningtile.cpp
+        core/vehiclehandler.hpp
+        core/vehiclehandler.cpp
+        core/MO/IVehicle.cpp
+        core/algorithm/pathfinder.hpp
+        core/algorithm/pathfinder.cpp
         core/MO/IVehicle.hpp
         core/MO/car.hpp
         core/MO/car.cpp
@@ -28,7 +37,7 @@ set(PROJECT_SOURCES
         core/MO/emptyfield.hpp
         core/MO/emptyfield.cpp
         maps/boardbuilder.hpp
-        maps/boardbuilder.cpp
+        maps/boardbuilder.cpp       
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

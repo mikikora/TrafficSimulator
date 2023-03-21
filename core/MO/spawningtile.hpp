@@ -1,19 +1,24 @@
 #pragma once
 
+#include <string>
+
 #include "ITile.hpp"
 
 namespace TS::core::MO
 {
-class EmptyField : public ITile
+
+class SpawningTile : public ITile
 {
 public:
-    EmptyField(const unsigned x, const unsigned y);
-    void pushVehicle(const VehicleData& v) override;
-    bool canBeConnected(const Side side) const override;
-    ~EmptyField() override {}
+    SpawningTile(const unsigned x, const unsigned y);
 
-    std::string classname() const override {return "EmptyField";}
+    void pushVehicle(const VehicleData& v) override;
+
+    bool canBeConnected(const Side side) const override;
+
+    ~SpawningTile(){}
+
+    std::string classname() const override {return "SpawningTile"; }
 };
 
 } // namespace TS::core::MO
-

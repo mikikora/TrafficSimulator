@@ -5,6 +5,7 @@
 #include "boardbuilder.hpp"
 #include "../core/MO/road.hpp"
 #include "../core/MO/emptyfield.hpp"
+#include "../core/MO/spawningtile.hpp"
 
 namespace TS::maps
 {
@@ -20,7 +21,7 @@ constexpr auto ALL_SIDES = {
  *  XXXXXXX
  *  XXXXXXX
  *  XXXXXXX
- *  -------
+ *  O-----O
  *  XXXXXXX
  *  XXXXXXX
  *  XXXXXXX
@@ -36,17 +37,19 @@ core::Board::BoardT getExampleBoard()
         {
             if (i == 3)
             {
-                const auto r = std::make_shared<core::MO::Road>(core::MO::Road::Direction::horizontal);
+                const auto r = std::make_shared<core::MO::Road>(i, j, core::MO::Road::Direction::horizontal);
                 line.push_back(r);
             }
             else
             {
-                const auto ef = std::make_shared<core::MO::EmptyField>();
+                const auto ef = std::make_shared<core::MO::EmptyField>(i, j);
                 line.push_back(ef);
             }
         }
         result.push_back(line);
     }
+    result[3][0] = std::make_shared<core::MO::SpawningTile>(3, 0);
+    result[3][6] = std::make_shared<core::MO::SpawningTile>(3, 6);
     return result;
 }
 
