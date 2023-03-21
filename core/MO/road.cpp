@@ -54,7 +54,7 @@ void Road::pushVehicle(const VehicleData& v)
 
 bool Road::endpointContains(const Tile endpoint) const
 {
-    return std::any_of(endpoints.begin(), endpoints.end(), [&](const auto& e){return e.second == endpoint;});
+    return std::any_of(endpoints.begin(), endpoints.end(), [&](const auto& e){ return e.second == endpoint;});
 }
 
 } // namespace TS::core::MO

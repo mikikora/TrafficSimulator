@@ -14,10 +14,12 @@ class VehicleHandler
 {
 public:
     VehicleHandler(const Board board);
-    std::shared_ptr<MO::IVehicle> createVehicle() const;
+    MO::VehicleList createVehicles() const;
 
 private:
     const SpawningTileList spawners;
+
+    std::shared_ptr<MO::IVehicle> createVehicle() const;
 //    const SpawningTileList endPoints;
 };
 

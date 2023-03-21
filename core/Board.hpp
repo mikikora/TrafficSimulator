@@ -18,5 +18,7 @@ struct Board
     BoardT board;
     const unsigned hight;
     const unsigned width;
+
+    void print() const;
 };
 } // namespace TS::core

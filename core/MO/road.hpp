@@ -25,7 +25,7 @@ public:
     void pushVehicle(const VehicleData& v) override;
     ~Road() override {};
 
-    std::string classname() const override {return "Road";}
+    std::string classname() const override {return "Road " + std::to_string(x) + std::to_string(y);}
 //    std::string classname() const override {return "Road" + std::string(endpoints.size(), 'X');}
 
 private:

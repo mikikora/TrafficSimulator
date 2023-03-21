@@ -7,10 +7,10 @@ namespace TS::core::algorithm
 class PathFinder
 {
 public:
-    PathFinder();
-    MO::TileList getPath(
+//    PathFinder();
+    static MO::TileList getPath(
             const MO::Tile src,
-            const MO::Tile dest) const;
+            const MO::Tile dest);
 };
 
 } // namespace TS::core::algorithm

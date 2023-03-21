@@ -14,6 +14,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
+        core/gamemanager.hpp
+        core/gamemanager.cpp
         core/MO/ITile.hpp
         core/MO/ITile.cpp
         core/Board.hpp

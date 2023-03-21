@@ -1,5 +1,6 @@
 #include <queue>
 #include <set>
+#include <iostream>
 
 #include "pathfinder.hpp"
 
@@ -7,13 +8,9 @@ namespace TS::core::algorithm
 {
 using namespace MO;
 
-PathFinder::PathFinder()
-{
-}
-
 MO::TileList PathFinder::getPath(
         const Tile src,
-        const Tile dest) const
+        const Tile dest)
 {
     // bfs algorithm
     std::queue<TileList> q;
@@ -22,17 +19,23 @@ MO::TileList PathFinder::getPath(
     q.push({src});
     while (q.size())
     {
-        const auto& path = q.front();
+        const auto path = q.front();
         const auto tile = path.back();
         q.pop();
-        if (seen.find(tile) == seen.end())
+
+        if (seen.find(tile) != seen.end())
             continue;
 
         if (tile == dest)
-            return path;
+            return std::move(path);
 
-        for (const auto [side, neighbour] : tile->endpoints)
+        seen.insert(tile);
+
+        for (const auto& [side, neighbour] : tile->endpoints)
         {
+            if (!neighbour)
+                continue;
+
             TileList newPath = path;
             newPath.push_back(neighbour);
             q.push(newPath);
